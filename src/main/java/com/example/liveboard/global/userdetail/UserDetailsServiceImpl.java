@@ -2,6 +2,8 @@ package com.example.liveboard.global.userdetail;
 
 import com.example.liveboard.domain.user.entity.User;
 import com.example.liveboard.domain.user.repository.UserRepository;
+import com.example.liveboard.global.exception.BisException;
+import com.example.liveboard.global.exception.ErrorCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,13 +1,19 @@
 package com.example.liveboard.global.s3;
 
+import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.example.liveboard.global.exception.BisException;
+import com.example.liveboard.global.exception.ErrorCode;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.UUID;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 @Component
+@RequiredArgsConstructor
 public class S3Utils {
   @Value("${aws.s3.bucket}")
   private String bucket;
@@ -47,9 +53,9 @@ public class S3Utils {
   }
 
   //이미지 접근
-  public String getFileURL(String filename, String classification){
-    return S3Const.S3_BASEURL  + classification + "/" + filename;
-  }
+//  public String getFileURL(String filename, String classification){
+//    return   + classification + "/" + filename;
+//  }
 
   //확장자 추출
   private String getExtension(String originalFilename){
