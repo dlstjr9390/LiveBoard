@@ -1,8 +1,14 @@
 package com.example.liveboard.global.auth;
 
+import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
-@Retention()
-public class AuthMember {
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.PARAMETER)
+@AuthenticationPrincipal(expression = "#this == 'anonymousUser' ? null : User")
+public @interface AuthMember {
 
 }

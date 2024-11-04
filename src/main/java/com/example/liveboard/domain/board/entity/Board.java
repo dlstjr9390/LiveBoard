@@ -1,6 +1,7 @@
 package com.example.liveboard.domain.board.entity;
 
 import com.example.liveboard.domain.board.dto.BoardRequestDto;
+import com.example.liveboard.global.timestamp.TimeStamp;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor
-public class Board {
+public class Board extends TimeStamp {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,9 +28,6 @@ public class Board {
 
   @Column(nullable = false)
   private String author;
-
-  @Column(nullable = false)
-  private LocalDateTime created_at;
 
   @Column(nullable = false)
   private long view;
