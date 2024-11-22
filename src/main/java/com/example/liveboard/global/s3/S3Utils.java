@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Component
 @RequiredArgsConstructor
 public class S3Utils {
-  @Value("${aws.s3.bucket}")
+  @Value("${AWS_S3_BUCKET}")
   private String bucket;
 
   private final AmazonS3Client amazonS3Client;

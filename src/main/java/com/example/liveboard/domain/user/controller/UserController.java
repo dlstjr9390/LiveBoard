@@ -7,10 +7,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/user")
 public class UserController {
-  @GetMapping("/kakao/callback")
-  public String kakaoLogin(@RequestParam String code,  HttpServletResponse response) {
-    String token =
+
+  @GetMapping("/loginPage")
+  public void loginPage(){
+
   }
+
+//  @GetMapping("/kakao/callback")
+//  public String kakaoLogin(@RequestParam String code,  HttpServletResponse response) {
+//    String token =
+//  }
 }

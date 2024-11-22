@@ -36,7 +36,6 @@ public class Board extends TimeStamp {
     this.title = boardRequestDto.getTitle();
     this.author = boardRequestDto.getAuthor();
     this.content = boardRequestDto.getContent();
-    this.created_at = LocalDateTime.now();
     this.view = 0;
   }
 
