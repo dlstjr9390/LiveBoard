@@ -22,6 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Slf4j
 @Component
@@ -62,6 +63,18 @@ public class JwtUtil {
         .setIssuedAt(date)
         .signWith(key, signatureAlgorithm)
         .compact();
+  }
+
+  public String createRefreshToken(String username) {
+    Date date = new Date();
+
+    return Jwts.builder()
+            .setSubject(username) // 사용자 식별자값(ID)
+            .claim(AUTHORIZATION_KEY, "USER")
+            .setExpiration(new Date(date.getTime() + REFRESH_TOKEN_TIME)) // 만료 시간
+            .setIssuedAt(date) // 발급일
+            .signWith(key, signatureAlgorithm) // 암호화 알고리즘
+            .compact();
   }
 
   public void addJwtToCookie(String tokenName, String JWT, HttpServletResponse res) {
@@ -118,4 +131,14 @@ public class JwtUtil {
 
     return null;
   }
+
+  public void saveJwt(String accessToken, String refreshToken, String email) {
+
+  }
+
+  @Transactional
+  public void deleteToken(String email) {
+
+  }
+
 }
