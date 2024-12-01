@@ -40,19 +40,10 @@
 </head>
 <body>
 <div class="login-container">
-  <h1>Kakao Login</h1>
-  <button id="kakao-login-btn" class="kakao-btn">Login with Kakao</button>
+
 </div>
 
 <script th:inline="javascript" >
-  const REST_API_KEY =  [[${RestApiKey}]] // 카카오 REST API 키
-  const REDIRECT_URI = "http://localhost:8080/user/kakao/callback"; // 설정한 Redirect URI
-  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`;
-
-  document.getElementById('kakao-login-btn').addEventListener('click', () => {
-    // 카카오 로그인 페이지로 이동
-    window.location.href = KAKAO_AUTH_URL;
-  });
 </script>
 </body>
 </html>
